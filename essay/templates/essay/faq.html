@@ -1,0 +1,219 @@
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Essay Synth</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/crispy-bootstrap5@1.13.0/dist/crispy-bootstrap5.min.css">
+
+    <style>
+        .navbar-toggler
+        {
+            border: none;
+            outline: none;
+            float: right;
+            position: relative;
+            margin-left: 80%;
+        }
+        /* Custom CSS for the navbar-toggler-icon */
+        .navbar-toggler-icon {
+            background-color: transparent;
+            border: none;
+            display: inline-block;
+            width: 1.5em;
+            height: 1.5em;
+            vertical-align: middle;
+            position: relative;
+            text-align: right;
+        }
+
+        .navbar-toggler-icon::before,
+        .navbar-toggler-icon::after {
+            content: '';
+            background-color: None; /* Color of the three lines */
+            width: 100%;
+            height: 3px; /* Height of each line */
+            position: absolute;
+            left: 0;
+            transition: transform 0.3s ease-out;
+        }
+
+        .navbar-toggler-icon::before {
+            top: -0.5em;
+        }
+
+        .navbar-toggler-icon::after {
+            bottom: -0.5em;
+        }
+
+        /* Rest of your styles */
+        body {
+            font-family: monospace;
+        }
+
+        .split {
+            height: 100vh;
+            width: 50%;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            overflow-x: hidden;
+            padding-top: 20px;
+        }
+
+        .left {
+            left: 0;
+            background-color: #111;
+            color: white;
+        }
+
+        .right {
+            right: 0;
+            background-color: white;
+            color: black;
+        }
+
+        .centered {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: left;
+        }
+
+        .centered img {
+            width: 150px;
+            border-radius: 50%;
+        }
+        .navbar{
+            font-size: larger;
+            padding-top: 0%;
+          }
+        .nav-link{
+          margin-left: 50px;
+          font-size: larger;
+        }
+        .nav-link:hover {
+          text-decoration: underline;
+        }
+        .btn-link{
+            color: black;
+        }
+        .btn-link:hover{
+            text-decoration: underline;
+            color: black;
+        }
+        @media only screen and (max-width: 600px) {
+          .left,
+          .right {
+              width: 50%;
+          }
+        .accordion{
+            padding-top: 50%; 
+
+        }
+      }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-sm fixed-top navbar-light">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1">
+                <!-- Hamburger icon with three black lines -->
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar1">
+                <ul class="navbar-nav ml-auto" style="text-align:right;">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'index'%}">Home</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'faq'%}">FAQ</a>
+                        
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="split left">
+        <div class="centered">
+            <h2 class="mb-4">Essay Synth</h2>
+        </div>
+    </div>
+
+
+
+
+    <div class="split right">
+        <div class="centered">
+            <div class="accordion" id="accordionExample">
+                <center><h1>FAQ</h1></center>
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                                data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                How is Essay Synth different from other essay writing services or ChatGPT?
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <div class="card-body">
+                            Essay Synth models have been trained on many ivy league collage essays. Thus it is able to generate essays that are similar to the ones written by students who got into ivy league collages while keeping the character of the original writer. ChatGPT is a general purpose model that has been trained on a large corpus of text. 
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingTwo">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                                data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Does Essay Synth use ChatGPT?
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                        <div class="card-body">
+                            Yes, Essay Synth uses ChatGPT as a final layer to stucture the essay and make it more coherent.
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingThree">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                                data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                Who made Essay Synth?
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                        <div class="card-body">
+                            Essay Synth was made by <a href="https://www.rahulmk.com/about/">Rahul Kashyap</a> 
+                        </div>
+                    </div>
+                </div>
+            </div>            
+        </div>
+        <p class="foot" style="margin-top: 100%; text-align:center">
+            &copy; Copyright 2021<script>new Date().getFullYear()>2017&&document.write("-"+new Date().getFullYear());</script>, Essay Synth.
+        </p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/crispy-bootstrap5@1.13.0/dist/crispy-bootstrap5.min.js"></script>
+    <script>
+
+        $('button').on('click', () => {
+            navigator.clipboard.writeText($('#rewritecopy').val());
+          });
+    </script>
+</body>
+<script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="rahulmkashyap" data-description="Support me on Buy me a coffee!" data-message="Support this page?" data-color="#5F7FFF" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
+</html>

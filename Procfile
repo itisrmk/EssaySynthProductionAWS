@@ -1,0 +1,1 @@
+web: gunicorn collageessay.wsgi --timeout 300
